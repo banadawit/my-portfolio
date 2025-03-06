@@ -1,18 +1,16 @@
-import React from 'react'
-
 const Footer = () => {
-    return (
-      <footer className="bg-[#0a192f] text-white py-6">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p>&copy; {new Date().getFullYear()} Bana Dawit. All rights reserved.</p>
-          <div className="mt-2">
-            <a href="https://github.com/BanaDawit" className="hover:text-[#64ffda] mx-2">GitHub</a>
-            <a href="https://www.linkedin.com/in/BanaDawit" className="hover:text-[#64ffda] mx-2">LinkedIn</a>
-          </div>
+  return (
+    // {/* footer section */}
+    <section>
+      <footer className="py-8 bg-[#112240] text-[#ccd6f6] text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-sm">
+            &copy; {new Date().getFullYear()} Bana Dawit. All rights reserved.
+          </p>
         </div>
       </footer>
-    );
-  };
-  
-  export default Footer;
-  
+    </section>
+  );
+};
+
+export default Footer;
