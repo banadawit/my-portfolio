@@ -8,7 +8,7 @@ const Hero = () => {
     <section
     id="hero"
     className="h-screen bg-cover bg-center relative"
-    style={{ backgroundImage: "url('/images/me128.jpg')" }}
+    style={{ backgroundImage: "url('/images/me31.jpg')" }}
     role="img"
     aria-label="Professional portfolio hero section"
   >
