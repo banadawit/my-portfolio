@@ -7,7 +7,7 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 ## 🚀 Live Demo
 
 Check out the live version of my portfolio:  
-👉 [https://banadawit.netlify.app/](https://banadawit.netlify.app/)
+👉 [Bana Dawit - Portfolio](https://banadawit.netlify.app/)
 
 ---
 
@@ -18,7 +18,6 @@ Check out the live version of my portfolio:
 - **Interactive Elements**: Smooth animations and hover effects for better user engagement.
 - **Project Showcase**: Detailed descriptions of my projects with links to live demos and GitHub repositories.
 - **Contact Form**: Easy-to-use form for visitors to get in touch with me.
-- **Dark Mode**: Toggle between light and dark themes for better accessibility.
 
 ---
 
@@ -37,8 +36,38 @@ Check out the live version of my portfolio:
 ---
 
 ## 📂 Project Structure
-
-
+```text
+my-portfolio/
+├── public/
+│   ├── index.html
+│   ├── favicon.png
+│   └── assets/
+│       ├── images/
+│       └── icons/
+│
+├── src/
+│   ├── components/
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Footer.jsx
+│   │   ├── Hero.jsx
+│   │   ├── MainContent.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Projects.jsx
+│   │   ├── Skills.jsx
+│   │   └── ThankYou.jsx
+│   │
+│   ├── App.js
+│   ├── index.js
+│
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+└── tailwind.config.js
+```
 ---
 
 ## 🚀 Getting Started
@@ -102,9 +131,11 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 Have a question or want to collaborate? Feel free to reach out!
 
-- Email: your-email@example.com
-- LinkedIn: Bana Dawit
-- GitHub: banadawit
+👉 Email: banadawithunde@example.com
+
+👉 LinkedIn: [Bana Dawit LinkedIn](https://www.linkedin.com/in/bana-dawit-121810312/)
+
+👉 GitHub: [Bana Dawit GitHub](https://github.com/banadawit/)
 
 ---
 
