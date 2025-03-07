@@ -17,7 +17,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 w-full md:w-1/4 h-16 md:h-screen bg-[#0a192f] text-white shadow-md z-50 md:flex md:flex-col md:justify-between p-4">
       <div className="absolute top-4 left-4 text-2xl font-bold text-white md:hidden cursor-pointer">
-        {/* <a href="#hero">Bana Dawit</a> */}
         <Link to="hero" smooth={true} duration={500}>
           Bana Dawit
         </Link>

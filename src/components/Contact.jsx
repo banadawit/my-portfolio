@@ -1,41 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true); // Set loading to true
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xkgjwode", {
+        method: "POST",
+        body: data,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (response.ok) {
+        setStatus("SUCCESS");
+        form.reset();
+        navigate("/thankyou"); // Redirect to Thank You page
+      } else {
+        setStatus("ERROR");
+      }
+    } catch (error) {
+      setStatus("ERROR");
+    } finally {
+      setIsLoading(false); // Set loading to false
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-[#0a192f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-[#64ffda] mb-4">
             Let's Connect
           </h2>
           <p className="text-lg text-[#ccd6f6] max-w-2xl mx-auto">
-            Whether you have a question, want to collaborate on a project, or
-            are looking for a front-end developer for your team, I'd love to
-            hear from you!
+            Whether you have a question, want to collaborate, or are looking for
+            a front-end developer, I'd love to hear from you!
           </p>
         </div>
 
-        {/* Form with Formspree Integration */}
-        <form
-          action="https://formspree.io/f/xkgjwode"
-          method="POST"
-          className="space-y-8"
-        >
-          {/* Hidden Input for Redirect (Optional) */}
-          <input
-            type="hidden"
-            name="_next"
-            value="http://yourportfolio.com/thank-you" // Replace with your "Thank You" page URL
-          />
-
-          {/* Hidden Input for Form Name (Optional) */}
-          <input
-            type="hidden"
-            name="_formname"
-            value="Portfolio Contact Form"
-          />
-
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* Name Field */}
           <div className="group">
             <label
@@ -49,7 +63,7 @@ const Contact = () => {
               id="name"
               name="name"
               required
-              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:outline-none focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
+              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
               placeholder="Enter your name"
             />
           </div>
@@ -67,7 +81,7 @@ const Contact = () => {
               id="email"
               name="email"
               required
-              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:outline-none focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
+              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
               placeholder="Enter your email"
             />
           </div>
@@ -85,7 +99,7 @@ const Contact = () => {
               name="message"
               rows="5"
               required
-              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:outline-none focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
+              className="w-full px-4 py-3 bg-[#112240] border border-[#233554] rounded-lg text-[#ccd6f6] focus:ring-2 focus:ring-[#64ffda] focus:border-transparent transition-all duration-300 placeholder-[#8892b0]"
               placeholder="Your message..."
             ></textarea>
           </div>
@@ -94,14 +108,31 @@ const Contact = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="px-8 py-3 bg-[#64ffda] text-[#0a192f] font-semibold rounded-lg hover:bg-[#3d9c8c] hover:scale-105 transition-all duration-300"
+              disabled={isLoading}
+              className={`px-8 py-3 font-semibold rounded-lg transition-all duration-300 ${
+                isLoading
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-[#64ffda] text-[#0a192f] hover:bg-[#3d9c8c] hover:scale-105"
+              }`}
             >
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
           </div>
+
+          {/* Success & Error Messages */}
+          {status === "SUCCESS" && (
+            <p className="text-center text-green-500 mt-4">
+              Your message has been sent successfully! 🎉
+            </p>
+          )}
+          {status === "ERROR" && (
+            <p className="text-center text-red-500 mt-4">
+              Oops! There was an error. Please try again.
+            </p>
+          )}
         </form>
 
-        {/* Social Links (Optional) */}
+        {/* Social Links */}
         <div className="mt-12 text-center">
           <p className="text-lg text-[#ccd6f6] mb-4">Or reach out directly:</p>
           <div className="flex justify-center gap-6">
