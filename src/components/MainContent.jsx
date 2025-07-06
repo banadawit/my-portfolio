@@ -5,27 +5,29 @@ import Projects from "./Projects";
 import Skills from "./Skills";
 import Contact from "./Contact";
 import Footer from "./Footer";
+import BackToTop from "./BackToTop";
 
 const MainContent = () => {
   return (
     <main className="w-full md:ml-96 md:mr-0 md:ml-1/4   ">
       {/* Hero section */}
-        <Hero />
+      <Hero />
 
       {/* About Section */}
-        <About />
+      <About />
 
       {/* Projects Section */}
-        <Projects />
+      <Projects />
 
       {/* Skills Section */}
-        <Skills />
+      <Skills />
 
       {/* Contact Section */}
-        <Contact />
-      
+      <Contact />
+
       {/* Footer Section */}
-      < Footer />
+      <Footer />
+      <BackToTop />
     </main>
   );
 };

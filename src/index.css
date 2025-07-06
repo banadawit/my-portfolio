@@ -2,6 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-bg {
-  @apply bg-[#0a192f];
+:root {
+  /* Light Theme */
+  --color-bg-light: #f8f9fa;
+  --color-text-light: #212529;
+  --color-text-secondary-light: #6c757d; /* Added */
+  --color-primary-light: #ffffff;
+  --color-nav-light: #f8f9fa;
+  --color-accent-light: #3b82f6; /* Changed to blue for better light mode contrast */
+  --color-card-light: #ffffff; /* Added */
+  --color-card-secondary-light: #f1f5f9; /* Added */
+
+  /* Dark Theme */
+  --color-bg-dark: #0a192f;
+  --color-text-dark: #e9ecef;
+  --color-text-secondary-dark: #adb5bd; /* Added */
+  --color-primary-dark: #112240;
+  --color-nav-dark: #0a192f;
+  --color-accent-dark: #64ffda;
+  --color-card-dark: #112240; /* Added */
+  --color-card-secondary-dark: #1e293b; /* Added */
+}
+
+[data-theme="light"] {
+  --color-bg: var(--color-bg-light);
+  --color-text: var(--color-text-light);
+  --color-text-secondary: var(--color-text-secondary-light); /* Added */
+  --color-primary: var(--color-primary-light);
+  --color-nav: var(--color-nav-light);
+  --color-accent: var(--color-accent-light);
+  --color-card: var(--color-card-light); /* Added */
+  --color-card-secondary: var(--color-card-secondary-light); /* Added */
+}
+
+[data-theme="dark"] {
+  --color-bg: var(--color-bg-dark);
+  --color-text: var(--color-text-dark);
+  --color-text-secondary: var(--color-text-secondary-dark); /* Added */
+  --color-primary: var(--color-primary-dark);
+  --color-nav: var(--color-nav-dark);
+  --color-accent: var(--color-accent-dark);
+  --color-card: var(--color-card-dark); /* Added */
+  --color-card-secondary: var(--color-card-secondary-dark); /* Added */
+}
+
+/* Base element styles */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Navbar specific styles */
+.navbar {
+  background-color: var(--color-nav);
+}
+
+/* Card styles for About section */
+.card {
+  background-color: var(--color-card);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Additional utility classes */
+.text-accent {
+  color: var(--color-accent);
+}
+
+.bg-card {
+  background-color: var(--color-card);
+}
+
+.bg-card-secondary {
+  background-color: var(--color-card-secondary);
+}
+
+:root {
+  /* Add these to your existing theme variables */
+  --color-card: #112240;
+  --color-card-secondary: #233554;
+}
+
+[data-theme="light"] {
+  --color-card: #ffffff;
+  --color-card-secondary: #f1f5f9;
+}
+
+[data-theme="dark"] {
+  --color-card: #112240;
+  --color-card-secondary: #1e293b;
 }

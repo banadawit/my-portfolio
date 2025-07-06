@@ -1,70 +1,104 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-scroll";
-
+import { motion } from "framer-motion";
 
 const Hero = () => {
   return (
-    <>
     <section
-    id="hero"
-    className="h-screen bg-cover bg-center relative"
-    style={{ backgroundImage: "url('/images/me31.jpg')" }}
-    role="img"
-    aria-label="Professional portfolio hero section"
-  >
-    {/* Gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-r from-[#0a192fdd] to-[#0a192f66]" />
+      id="hero"
+      className="h-screen bg-cover bg-center relative"
+      style={{ backgroundImage: "url('/images/me31.jpg')" }}
+      role="img"
+      aria-label="Professional portfolio hero section"
+    >
+      {/* Gradient overlay - now theme-aware */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-nav)] to-[var(--color-nav)/60]" />
 
-    {/* Content container */}
-    <div className="flex items-center justify-center h-full text-center relative z-10 px-4">
-      <div className="max-w-4xl space-y-8 opacity-0 animate-fade-in-up [animation-delay:100ms]">
-        {/* Main heading */}
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-6 leading-tight">
-          Hi, I'm <span className="text-[#64ffda]">Bana Dawit</span>
-        </h1>
+      {/* Content container */}
+      <div className="flex items-center justify-center h-full text-center relative z-10 px-4">
+        <div className="max-w-4xl space-y-6 sm:space-y-8">
+          {/* Main heading with animation */}
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+          >
+            Hi, I'm{" "}
+            <span className="text-[var(--color-accent)]">Bana Dawit</span>
+          </motion.h1>
 
-        {/* Subheading */}
-        <p className="text-lg sm:text-xl md:text-2xl mb-6 font-mono text-[#64ffda]">
-          Front-End Developer
-        </p>
+          {/* Subheading with animation */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg sm:text-xl md:text-2xl font-mono text-[var(--color-accent)]"
+          >
+            Front-End Developer
+          </motion.p>
 
-        {/* Description */}
-        <p className="text-lg sm:text-xl text-[#ccd6f6] max-w-2xl mx-auto leading-relaxed">
-          Bringing designs to life with React. Passionate about crafting
-          clean, responsive, and user-friendly web experiences.
-        </p>
+          {/* Description with animation */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-base sm:text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mx-auto leading-relaxed"
+          >
+            Bringing designs to life with React. Passionate about crafting
+            clean, responsive, and user-friendly web experiences.
+          </motion.p>
 
-        {/* CTA Button */}
-        <Link
-          to="about" // This links to the section with id="about"
-          smooth={true} // Enable smooth scrolling
-          duration={500} // Scroll duration (500ms)
-          className="inline-block mt-12 px-8 py-3 bg-transparent border-2 border-[#64ffda] text-[#64ffda] font-mono rounded-lg hover:bg-[#64ffda22] transition-all duration-300 transform hover:scale-105 cursor-pointer"
-        >
-          Discover My Process →
-        </Link>
+          {/* CTA Button with animation */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="pt-6"
+          >
+            <Link
+              to="about"
+              smooth={true}
+              duration={500}
+              className="inline-block px-8 py-3 bg-transparent border-2 border-[var(--color-accent)] text-[var(--color-accent)] font-mono rounded-lg hover:bg-[var(--color-accent)/10] transition-all duration-300 hover:scale-105 cursor-pointer"
+            >
+              Discover My Work →
+            </Link>
+          </motion.div>
+        </div>
       </div>
-    </div>
 
-    {/* Animation styles */}
-    <style jsx>{`
-      @keyframes fade-in-up {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in-up {
-        animation: fade-in-up 1s ease-out forwards;
-      }
-    `}</style>
-  </section>
-  </>
-  )
-}
+      {/* Scroll indicator - optional */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <Link
+          to="about"
+          smooth={true}
+          duration={500}
+          className="flex flex-col items-center cursor-pointer"
+        >
+          <span className="text-sm text-[var(--color-text-secondary)] mb-2">
+            Scroll Down
+          </span>
+          <div className="w-6 h-10 border-2 border-[var(--color-accent)] rounded-full flex justify-center">
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{
+                duration: 1.5,
+                repeat: Infinity,
+                repeatType: "loop",
+              }}
+              className="w-1 h-2 bg-[var(--color-accent)] rounded-full mt-1"
+            />
+          </div>
+        </Link>
+      </motion.div>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;

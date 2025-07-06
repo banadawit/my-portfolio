@@ -20,7 +20,9 @@ function AppContent() {
   const location = useLocation(); // Get current route
 
   return (
-    <div className="bg-[#0a192f] text-white flex md:flex-row flex-col min-h-screen">
+    <div
+      className={`min-h-screen flex md:flex-row flex-col bg-[var(--color-bg)] text-[var(--color-text)] transition-colors duration-300`}
+    >
       {location.pathname !== "/thankyou" && <Navbar />}
       <Routes>
         {location.pathname === "/thankyou" ? (
