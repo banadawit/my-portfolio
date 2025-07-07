@@ -1,38 +1,47 @@
 import React from "react";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <section
       id="about"
-      className="py-16 md:py-20 bg-[var(--color-bg)] transition-colors duration-300"
+      className="py-16 md:py-24 bg-[var(--color-bg)] transition-colors duration-300"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-center text-[var(--color-accent)] mb-12 md:mb-16"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16 md:mb-20"
         >
-          <span className="border-b-4 border-[var(--color-accent)] pb-2">
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
             About Me
-          </span>
-        </motion.h2>
+          </h2>
+          <div className="w-24 h-1 bg-[var(--color-accent)] mx-auto rounded-full" />
+          <p className="mt-4 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            Get to know the person behind the code
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
           {/* Left Column - Text Content */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-8 md:space-y-10">
             {/* Main Intro Card */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="group relative p-6 bg-[var(--color-card)] rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group relative p-8 bg-[var(--color-card)] rounded-xl shadow-sm transition-all duration-500 hover:shadow-lg border border-[var(--color-card-border)]"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-accent)] to-transparent rounded-lg blur opacity-10 group-hover:opacity-20 transition duration-1000"></div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-[var(--color-accent)/20] to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               <div className="relative">
-                <p className="text-lg md:text-xl text-[var(--color-text-secondary)] leading-relaxed">
+                <h3 className="text-2xl font-mono text-[var(--color-accent)] mb-4">
+                  Who I Am
+                </h3>
+                <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
                   I'm a passionate{" "}
                   <span className="text-[var(--color-accent)] font-medium">
                     front-end developer
@@ -57,66 +66,80 @@ const About = () => {
 
             {/* Education Card */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="p-6 bg-[var(--color-card)] rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="p-8 bg-[var(--color-card)] rounded-xl shadow-sm transition-all duration-500 hover:shadow-lg border border-[var(--color-card-border)]"
             >
-              <h3 className="text-2xl text-[var(--color-accent)] font-mono mb-4">
+              <h3 className="text-2xl font-mono text-[var(--color-accent)] mb-4">
                 Education Journey
               </h3>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Currently pursuing my Software Engineering degree at{" "}
-                <span className="text-[var(--color-accent)]">
-                  Haramaya University
-                </span>
-                , where I've developed strong programming fundamentals and
-                discovered my passion for web development through various
-                academic projects and self-driven learning.
-              </p>
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0 mt-1">
+                  <div className="w-3 h-3 bg-[var(--color-accent)] rounded-full"></div>
+                </div>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                  Currently pursuing my Software Engineering degree at{" "}
+                  <span className="text-[var(--color-accent)]">
+                    Haramaya University
+                  </span>
+                  , where I've developed strong programming fundamentals and
+                  discovered my passion for web development through various
+                  academic projects and self-driven learning.
+                </p>
+              </div>
             </motion.div>
           </div>
 
           {/* Right Column - Skills & Interests */}
-          <div className="space-y-6 md:space-y-8">
+          <div className="space-y-8 md:space-y-10">
             {/* Skills Card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="p-6 bg-[var(--color-card)] rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="p-8 bg-[var(--color-card)] rounded-xl shadow-sm transition-all duration-500 hover:shadow-lg border border-[var(--color-card-border)]"
             >
-              <h3 className="text-2xl text-[var(--color-accent)] font-mono mb-4">
+              <h3 className="text-2xl font-mono text-[var(--color-accent)] mb-6">
                 Current Focus
               </h3>
-              <ul className="grid grid-cols-2 gap-3 md:gap-4 text-[var(--color-text-secondary)]">
+              <ul className="grid grid-cols-2 gap-4 text-[var(--color-text-secondary)]">
                 {[
-                  "Advanced React Patterns",
-                  "Tailwind Mastery",
-                  "Django Fundamentals",
-                  "UI/UX Principles",
+                  "React Patterns",
+                  "Tailwind CSS",
+                  "Django",
+                  "UI/UX Design",
                   "TypeScript",
-                  "Performance Optimization",
+                  "Performance",
+                  "State Mgmt",
+                  "Accessibility",
                 ].map((skill, index) => (
-                  <li key={index} className="flex items-start">
-                    <span className="w-2 h-2 bg-[var(--color-accent)] rounded-full mt-2 mr-2"></span>
-                    {skill}
-                  </li>
+                  <motion.li
+                    key={index}
+                    whileHover={{ x: 4 }}
+                    className="flex items-start mb-2"
+                  >
+                    <span className="w-2 h-2 bg-[var(--color-accent)] rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    <span>{skill}</span>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
 
             {/* Hobbies Card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              className="p-6 bg-[var(--color-card)] rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="p-8 bg-[var(--color-card)] rounded-xl shadow-sm transition-all duration-500 hover:shadow-lg border border-[var(--color-card-border)]"
             >
-              <h3 className="text-2xl text-[var(--color-accent)] font-mono mb-4">
+              <h3 className="text-2xl font-mono text-[var(--color-accent)] mb-6">
                 Beyond Coding
               </h3>
-              <div className="flex flex-wrap gap-3 text-[var(--color-text-secondary)]">
+              <div className="flex flex-wrap gap-3">
                 {[
                   { emoji: "🎮", label: "Gaming" },
                   { emoji: "🎧", label: "Music" },
@@ -124,17 +147,20 @@ const About = () => {
                   { emoji: "📚", label: "Reading" },
                   { emoji: "✈️", label: "Travel" },
                   { emoji: "☕", label: "Coffee" },
+                  { emoji: "🍳", label: "Cooking" },
+                  { emoji: "🏋️", label: "Fitness" },
                 ].map((hobby, index) => (
-                  <div
+                  <motion.div
                     key={index}
-                    className="flex items-center gap-2 px-3 py-1.5 bg-[var(--color-card-secondary)] rounded-full hover:bg-[var(--color-accent)] hover:text-[var(--color-card)] transition-all cursor-default"
+                    whileHover={{ y: -3 }}
+                    className="flex items-center gap-2 px-4 py-2 bg-[var(--color-card-secondary)] rounded-lg hover:bg-[var(--color-accent)] hover:text-[var(--color-card)] transition-colors cursor-default"
                   >
-                    <span>{hobby.emoji}</span>
-                    <span>{hobby.label}</span>
-                  </div>
+                    <span className="text-lg">{hobby.emoji}</span>
+                    <span className="text-sm">{hobby.label}</span>
+                  </motion.div>
                 ))}
               </div>
-              <p className="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+              <p className="mt-6 text-[var(--color-text-secondary)] text-sm italic">
                 When I'm not coding, you'll find me exploring new technologies,
                 enjoying entertainment, or seeking inspiration from the world
                 around me.
@@ -145,23 +171,17 @@ const About = () => {
 
         {/* Continuous Learning Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-          className="mt-12 md:mt-16 text-center"
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="mt-16 md:mt-24 text-center"
         >
-          <div className="inline-block p-6 bg-[var(--color-card)] rounded-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg">
+          <div className="inline-block p-8 bg-[var(--color-card)] rounded-xl shadow-sm transition-all duration-500 hover:shadow-lg border border-[var(--color-card-border)] max-w-3xl">
             <p className="text-lg text-[var(--color-text-secondary)] italic">
-              "Always learning, always growing — currently expanding my skills
-              in{" "}
-              <span className="text-[var(--color-accent)] font-mono">
-                Django
-              </span>{" "}
-              and{" "}
-              <span className="text-[var(--color-accent)] font-mono">
-                REST APIs
-              </span>{" "}
-              to become a more versatile developer."
+              "Always learning, always growing — continuously expanding my
+              technical skills to become a more versatile and well-rounded
+              developer."
             </p>
           </div>
         </motion.div>

@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowUp } from "react-icons/fa";
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,48 +15,41 @@ const BackToTop = () => {
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
-    return () => window.removeEventListener('scroll', toggleVisibility);
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
   // Scroll to top smoothly
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
   return (
-    <>
+    <AnimatePresence>
       {isVisible && (
         <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
           onClick={scrollToTop}
-          whileHover={{ y: -3, scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="fixed bottom-8 right-8 z-50 p-3 bg-[var(--color-accent)] text-[var(--color-card)] rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          whileHover={{
+            y: -5,
+            backgroundColor: "var(--color-accent-dark)",
+            boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+          }}
+          whileTap={{ scale: 0.9 }}
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 p-3 bg-[var(--color-accent)] text-[var(--color-card)] rounded-full shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 focus:ring-offset-[var(--color-card)]"
           aria-label="Back to top"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
+          <FaArrowUp className="w-5 h-5" />
+          <span className="sr-only">Back to top</span>
         </motion.button>
       )}
-    </>
+    </AnimatePresence>
   );
 };
 

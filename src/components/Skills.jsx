@@ -6,91 +6,103 @@ const Skills = () => {
   const skillCategories = [
     {
       id: 1,
-      title: "Frontend",
-      icon: <FaCode className="text-[var(--color-accent)] text-xl" />,
+      title: "Frontend Development",
+      icon: <FaCode className="text-[var(--color-accent)] text-2xl" />,
       skills: [
         { name: "React", icon: "react", proficiency: 85 },
         { name: "JavaScript", icon: "javascript", proficiency: 80 },
+        { name: "TypeScript", icon: "typescript", proficiency: 70 },
         { name: "HTML5", icon: "html5", proficiency: 90 },
         { name: "CSS3", icon: "css3", proficiency: 80 },
-        { name: "Tailwind CSS", icon: "tailwind", proficiency: 85 },
+        { name: "Tailwind CSS", icon: "tailwindcss", proficiency: 85 },
       ],
     },
     {
       id: 2,
-      title: "Backend",
-      icon: <FaServer className="text-[var(--color-accent)] text-xl" />,
+      title: "Backend & Databases",
+      icon: <FaServer className="text-[var(--color-accent)] text-2xl" />,
       skills: [
-        { name: "Django", icon: "django", proficiency: 70 },
+        {
+          name: "Django",
+          icon: "django",
+          proficiency: 85,
+        },
+        { name: "Python", icon: "python", proficiency: 75 },
+        { name: "Node.js", icon: "nodejs", proficiency: 65 },
         { name: "MySQL", icon: "mysql", proficiency: 65 },
-        { name: "API Development", icon: "api", proficiency: 75 },
+        { name: "PostgreSQL", icon: "postgresql", proficiency: 80 },
+        { name: "REST APIs", icon: "api", proficiency: 70 },
       ],
     },
     {
       id: 3,
-      title: "Dev Tools",
-      icon: <FaTools className="text-[var(--color-accent)] text-xl" />,
+      title: "Tools & Design",
+      icon: <FaTools className="text-[var(--color-accent)] text-2xl" />,
       skills: [
         { name: "Git & GitHub", icon: "github", proficiency: 80 },
         { name: "VS Code", icon: "vscode", proficiency: 90 },
         // { name: "Figma", icon: "figma", proficiency: 70 },
+        { name: "Postman", icon: "postman", proficiency: 75 },
+        // { name: "Docker", icon: "docker", proficiency: 60 },
       ],
     },
   ];
 
   return (
-    <section
-      id="skills"
-      className="py-16 md:py-20 lg:py-24 bg-[var(--color-bg)]"
-    >
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-[var(--color-bg)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12 md:mb-16 lg:mb-20"
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-3 md:mb-4">
-            Technical Arsenal
+          <h2 className="text-4xl md:text-5xl font-bold text-[var(--color-accent)] mb-4">
+            My Skills
           </h2>
-          <p className="text-base md:text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
-            Tools and technologies I use to bring ideas to life
+          <div className="w-20 h-1 bg-[var(--color-accent)] mx-auto mb-6 rounded-full" />
+          <p className="text-lg text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+            Technologies and tools I use to build exceptional digital
+            experiences
           </p>
         </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-              className="group relative bg-[var(--color-card)] rounded-xl p-6 md:p-7 lg:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="group relative bg-[var(--color-card)] rounded-xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-[var(--color-card-border)]"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-accent)/10] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
-
               {/* Category Header */}
-              <div className="flex items-center mb-5 md:mb-6 space-x-3">
-                {category.icon}
-                <h3 className="text-xl md:text-2xl font-mono font-semibold text-[var(--color-accent)]">
-                  <span className="border-b-2 border-[var(--color-accent)] pb-1">
-                    {category.title}
-                  </span>
+              <div className="flex items-center mb-6">
+                <div className="p-3 bg-[var(--color-card-secondary)] rounded-lg mr-4">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-bold text-[var(--color-text)]">
+                  {category.title}
                 </h3>
               </div>
 
               {/* Skills List */}
-              <ul className="space-y-3 md:space-y-4">
+              <ul className="space-y-5">
                 {category.skills.map((skill) => (
-                  <li key={skill.name} className="flex flex-col">
-                    <div className="flex items-center mb-1">
-                      <span className="w-5 h-5 mr-3 flex items-center justify-center">
+                  <motion.li
+                    key={skill.name}
+                    whileHover={{ x: 5 }}
+                    className="flex flex-col"
+                  >
+                    <div className="flex items-center mb-2">
+                      <div className="w-8 h-8 mr-3 flex items-center justify-center bg-[var(--color-card-secondary)] rounded-lg">
                         {skill.icon === "api" ? (
                           <svg
-                            className="w-4 h-4 text-[var(--color-accent)]"
+                            className="w-5 h-5 text-[var(--color-accent)]"
                             fill="none"
                             stroke="currentColor"
                             viewBox="0 0 24 24"
@@ -106,29 +118,50 @@ const Skills = () => {
                           <img
                             src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.icon}/${skill.icon}-original.svg`}
                             alt={skill.name}
-                            className="w-4 h-4"
+                            className="w-5 h-5"
                           />
                         )}
-                      </span>
-                      <span className="text-sm md:text-base text-[var(--color-text)] flex-1">
-                        {skill.name}
-                      </span>
-                      <span className="text-xs md:text-sm text-[var(--color-accent)] font-mono ml-2">
+                      </div>
+                      <div className="flex-1">
+                        <span className="text-[var(--color-text)] font-medium">
+                          {skill.name}
+                        </span>
+                      </div>
+                      <span className="text-sm text-[var(--color-accent)] font-mono">
                         {skill.proficiency}%
                       </span>
                     </div>
-                    <div className="w-full h-1.5 bg-[var(--color-card-secondary)] rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-[var(--color-accent)] transition-all duration-500"
-                        style={{ width: `${skill.proficiency}%` }}
-                      ></div>
+                    <div className="w-full h-2 bg-[var(--color-card-secondary)] rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.proficiency}%` }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                        viewport={{ once: true }}
+                        className="h-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-light)]"
+                      />
                     </div>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </motion.div>
           ))}
         </div>
+
+        {/* Continuous Learning */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          viewport={{ once: true }}
+          className="text-center mt-16"
+        >
+          <div className="inline-block p-6 bg-[var(--color-card)] rounded-xl shadow-sm border border-[var(--color-card-border)]">
+            <p className="text-lg text-[var(--color-text-secondary)] italic">
+              "Continuously expanding my skill set to stay at the forefront of
+              web development technologies."
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
