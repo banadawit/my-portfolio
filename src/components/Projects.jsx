@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import portfolioImg from "../assets/images/portfolio.png";
-import filmSearcherImg from "../assets/images/film-searcher.png";
-import djangoGuideImg from "../assets/images/django-portfolio-guide.png";
+import portfolioImg from "../assets/images/portfolio.webp";
+import filmSearcherImg from "../assets/images/film-searcher.webp";
+import djangoGuideImg from "../assets/images/django-portfolio-guide.webp";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const Projects = () => {
@@ -113,6 +113,7 @@ const Projects = () => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
                     className="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-nav)/70] via-transparent to-transparent" />
