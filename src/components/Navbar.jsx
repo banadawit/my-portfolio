@@ -167,7 +167,7 @@ const Navbar = () => {
         <div>
           {/* Resume Button */}
           <motion.a
-            href="/resume.pdf"
+            href="/BanaDawit_Resume_Master.pdf"
             download="Bana_Dawit_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -240,7 +240,7 @@ const Navbar = () => {
 
               {/* Resume Button (Mobile) */}
               <motion.a
-                href="/resume.pdf"
+                href="/BanaDawit_Resume_Master.pdf"
                 download="Bana_Dawit_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
